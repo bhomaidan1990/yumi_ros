@@ -10,7 +10,7 @@ git clone --recursive https://github.com/bhomaidan1990/yumi_ros.git
 cd yumi_ros
 git clone https://github.com/ros-industrial/abb_driver.git
 git clone https://github.com/ros-industrial/industrial_core.git
-mkdir ../src && mv * ../src/
+mkdir src && mv * src/
 cd .. && rm -rf yumi_ros
 catkin b -DCMAKE_BUILD_TYPE=RELEASE
 . devel/setup.bash
