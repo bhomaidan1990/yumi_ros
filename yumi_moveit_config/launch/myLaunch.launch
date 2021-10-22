@@ -1,0 +1,46 @@
+<launch>
+  <!-- The planning and execution components of MoveIt! configured to run -->
+  <!-- using the ROS-Industrial interface. -->
+ 
+  <!-- Non-standard joint names:
+       - Create a file [robot_moveit_config]/config/joint_names.yaml
+           controller_joint_names: [joint_1, joint_2, ... joint_N] 
+       - Update with joint names for your robot (in order expected by rbt controller)
+       - and uncomment the following line: -->
+ 
+  <!-- Initialize Arguments -->
+  <arg name="sim" default="false"/> <!-- argument for running as a simulation instead of on the real robot controller -->
+  <arg name="robot_ip" default="192.168.125.1"/> <!-- argiment for the IP address of YuMi -->
+  <arg name="rviz" default="true"/> <!-- argument to lead or not load rviz during execution -->
+
+  <!-- Load Joint Names to ROS Parameter Server -->
+  <group> 
+    <rosparam command="load" file="$(find yumi_support)/config/joint_names_left.yaml"/>
+    <rosparam command="load" file="$(find yumi_support)/config/joint_names_right.yaml"/>
+  </group>
+
+  <!-- Load Robot Description -->
+  <include file="$(find yumi_moveit_config)/launch/planning_context.launch">
+  </include>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> <!-- publish TF transforms -->
+
+  <!-- Run Robot and Joint State Servers -->
+  <group unless="$(arg sim)">
+    <include file="$(find yumi_support)/launch/robot_interface.launch">
+      <arg name="robot_ip" value="$(arg robot_ip)"/>
+    </include>
+  </group>
+
+  <!-- Launch Move Group Capabilities -->
+  <include file="$(find yumi_moveit_config)/launch/move_group.launch">
+  </include>
+
+  <!-- Launch RViz If Desired -->
+  <group if="$(arg rviz)">
+    <include file="$(find yumi_moveit_config)/launch/moveit_rviz.launch">
+      <arg name="config" value="true"/>
+    </include>
+  </group>
+
+</launch>
