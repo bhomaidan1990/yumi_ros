@@ -6,7 +6,7 @@ ABB YuMi IRB 14000 ROS Architeture
 
 Please follow the steps in [ROS-wiki](http://wiki.ros.org/ROS/Installation) to install the corresponding ROS distribution.
 - in my case Ubuntu `20.04`: [ROS-Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
-- 
+
 ## Please read this [wiki](https://github.com/kth-ros-pkg/yumi/wiki) before to start.
 
 ## Dependencies
