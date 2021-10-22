@@ -38,6 +38,12 @@ sudo apt-get install \
         ros-$ROS_DISTRO-transmission-interface \
         ros-$ROS_DISTRO-velocity-controllers
 ```
+Then:
+```
+pip3 install --user pyftpdlib
+pip3 install --user --upgrade pyassimp
+
+```
 
 ## Quick Start
 
@@ -50,12 +56,6 @@ cd ..
 rosdep install --from-paths src --ignore-src -r -y
 catkin b -DCMAKE_BUILD_TYPE=RELEASE
 . devel/setup.bash
-```
-Then:
-```
-pip3 install --user pyftpdlib
-pip3 install --user --upgrade pyassimp
-
 ```
 
 ### Network Setup:
