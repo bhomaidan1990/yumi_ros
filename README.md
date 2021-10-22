@@ -16,4 +16,5 @@ catkin b -DCMAKE_BUILD_TYPE=RELEASE
 ```
 
 To run RVIZ with moveit:
+- After you connect to YuMi (which should be running and motors on in Automatic mode):
 - > `roslaunch yumi_moveit_config myLaunch.launch`
