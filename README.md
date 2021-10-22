@@ -8,7 +8,8 @@ ABB YuMi IRB 14000 ROS Architeture
 ```
 git clone --recursive https://github.com/bhomaidan1990/yumi_ros.git
 cd yumi_ros
-git submodule update --init
+git clone https://github.com/ros-industrial/abb_driver.git
+git clone https://github.com/ros-industrial/industrial_core.git
 mkdir ../src && mv * ../src/
 cd .. && rm -rf yumi_ros
 catkin b -DCMAKE_BUILD_TYPE=RELEASE
@@ -16,4 +17,4 @@ catkin b -DCMAKE_BUILD_TYPE=RELEASE
 ```
 
 To run RVIZ with moveit:
-`roslaunch yumi_moveit_config myLaunch.launch`
+- > `roslaunch yumi_moveit_config myLaunch.launch`
