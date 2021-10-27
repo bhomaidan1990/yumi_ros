@@ -60,6 +60,10 @@ rosdep install --from-paths src --ignore-src -r -y
 
 Please be sure to follow the [Network Setup Instructions](https://github.com/kth-ros-pkg/yumi/wiki/Network-setup)
 
+## Running the Robot
+
+Please set the main pointer at the FlexPendant to main for the `Rob_L` and `Rob_R` tasks, then run them by presseng on the play button on the flexpendant lower right side.
+
 To run RVIZ with moveit:
 - After you connect to YuMi (which should be running and motors on in Automatic mode):
 ```
