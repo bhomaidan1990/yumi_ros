@@ -5,6 +5,8 @@
 
   <arg name="pipeline" default="ompl" />
 
-  <include file="$(find yumi_moveit_config)/launch/$(arg pipeline)_planning_pipeline.launch.xml" />
+  <include file="$(find yumi_moveit_config)/launch/$(arg pipeline)_planning_pipeline.launch.xml">
+    <arg name="pipeline" value="$(arg pipeline)" />
+  </include>
 
 </launch>

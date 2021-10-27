@@ -5,7 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded: ~
       Splitter Ratio: 0.5357142686843872
-    Tree Height: 149
+    Tree Height: 224
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -347,48 +347,6 @@ Visualization Manager:
         {}
       Queue Size: 100
       Value: true
-    - Alpha: 1
-      Class: rviz/Effort
-      Enabled: true
-      History Length: 1
-      Joints:
-        yumi_joint_1_l:
-          Value: true
-        yumi_joint_1_r:
-          Value: true
-        yumi_joint_2_l:
-          Value: true
-        yumi_joint_2_r:
-          Value: true
-        yumi_joint_3_l:
-          Value: true
-        yumi_joint_3_r:
-          Value: true
-        yumi_joint_4_l:
-          Value: true
-        yumi_joint_4_r:
-          Value: true
-        yumi_joint_5_l:
-          Value: true
-        yumi_joint_5_r:
-          Value: true
-        yumi_joint_6_l:
-          Value: true
-        yumi_joint_6_r:
-          Value: true
-        yumi_joint_7_l:
-          Value: true
-        yumi_joint_7_r:
-          Value: true
-      Name: Effort
-      Queue Size: 10
-      Robot Description: robot_description
-      Scale: 1
-      TF Prefix: ""
-      Topic: /yumi/gripper_states
-      Unreliable: false
-      Value: true
-      Width: 0.019999999552965164
     - Class: rviz/InteractiveMarkers
       Enable Transparency: true
       Enabled: true
@@ -437,7 +395,7 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 768
+  Height: 948
   Help:
     collapsed: false
   Hide Left Dock: false
@@ -446,9 +404,9 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000002a6fc0200000007fb000000100044006900730070006c006100790073010000003d00000118000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000015b000001880000017d00ffffff00000398000002a600000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002a20000035afc0200000007fb000000100044006900730070006c006100790073010000003d00000163000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000001a6000001f10000017d00ffffff000004d80000035a00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1600
+  Width: 1920
   X: 0
-  Y: 27
+  Y: 947

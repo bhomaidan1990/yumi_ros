@@ -2,6 +2,9 @@
 
   <include file="$(find yumi_moveit_config)/launch/planning_context.launch" />
 
+  <!-- Default Planning Pipeline -->
+   <arg name="pipeline" default="ompl" />
+
   <!-- GDB Debug Option -->
   <arg name="debug" default="false" />
   <arg unless="$(arg debug)" name="launch_prefix" value="" />
@@ -22,7 +25,7 @@
 
   <!-- Planning Functionality -->
   <include ns="move_group" file="$(find yumi_moveit_config)/launch/planning_pipeline.launch.xml">
-    <arg name="pipeline" value="ompl" />
+    <arg name="pipeline" value="$(arg pipeline)" />
   </include>
 
   <!-- Trajectory Execution Functionality -->
