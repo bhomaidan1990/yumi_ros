@@ -14,11 +14,10 @@
   <xacro:arg name="arms_interface" default="VelocityJointInterface"/> 
   <xacro:arg name="grippers_interface" default="EffortJointInterface"/> 
   <xacro:arg name="yumi_setup" default="robot_centric"/>
-  <xacro:arg name="yumi_parent" default="world"/>
   <xacro:property name="yumi_setup" value="$(arg yumi_setup)" />
   
   <!--yumi-->
-  <xacro:yumi name="yumi" hardware_interface="hardware_interface/$(arg arms_interface)" parent="${yumi_parent}" >
+  <xacro:yumi name="yumi" hardware_interface="hardware_interface/$(arg arms_interface)" parent="world" >
     <origin xyz="0 0 0.1" rpy="0 0 0" />
   </xacro:yumi>
 
