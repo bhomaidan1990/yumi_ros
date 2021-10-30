@@ -14,6 +14,7 @@
   <xacro:arg name="arms_interface" default="VelocityJointInterface"/> 
   <xacro:arg name="grippers_interface" default="EffortJointInterface"/> 
   <xacro:arg name="yumi_setup" default="robot_centric"/>
+  <xacro:arg name="yumi_parent" default="world"/>
   <xacro:property name="yumi_setup" value="$(arg yumi_setup)" />
   
   <!--yumi-->
@@ -30,10 +31,6 @@
   <xacro:yumi_servo_gripper name="gripper_l" hardware_interface="hardware_interface/$(arg grippers_interface)" parent="yumi_link_7_l">
     <origin xyz="0 0 0.007" rpy="0 0 ${PI}" />
   </xacro:yumi_servo_gripper>
-
-
-
-  <xacro:property name="yumi_setup" value="$(arg yumi_setup)" />
 
   <xacro:if value="${yumi_setup == 'robot_centric'}">
   	<!-- Pure YuMi URDF, with no joints connecting it to any other robot or pedestal. Neither accessories. -->
