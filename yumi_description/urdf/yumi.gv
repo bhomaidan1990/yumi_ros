@@ -1,0 +1,68 @@
+digraph G {
+node [shape=box];
+"yumi_base_link" [label="yumi_base_link"];
+"yumi_body" [label="yumi_body"];
+"yumi_link_1_l" [label="yumi_link_1_l"];
+"yumi_link_2_l" [label="yumi_link_2_l"];
+"yumi_link_3_l" [label="yumi_link_3_l"];
+"yumi_link_4_l" [label="yumi_link_4_l"];
+"yumi_link_5_l" [label="yumi_link_5_l"];
+"yumi_link_6_l" [label="yumi_link_6_l"];
+"yumi_link_7_l" [label="yumi_link_7_l"];
+"gripper_l_base" [label="gripper_l_base"];
+"gripper_l_finger_r" [label="gripper_l_finger_r"];
+"gripper_l_finger_l" [label="gripper_l_finger_l"];
+"yumi_link_1_r" [label="yumi_link_1_r"];
+"yumi_link_2_r" [label="yumi_link_2_r"];
+"yumi_link_3_r" [label="yumi_link_3_r"];
+"yumi_link_4_r" [label="yumi_link_4_r"];
+"yumi_link_5_r" [label="yumi_link_5_r"];
+"yumi_link_6_r" [label="yumi_link_6_r"];
+"yumi_link_7_r" [label="yumi_link_7_r"];
+"gripper_r_base" [label="gripper_r_base"];
+"gripper_r_finger_r" [label="gripper_r_finger_r"];
+"gripper_r_finger_l" [label="gripper_r_finger_l"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"yumi_base_link" -> "yumi_base_link_to_body" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"yumi_base_link_to_body" -> "yumi_body"
+"yumi_body" -> "yumi_joint_1_l" [label="xyz: 0.05355 0.0725 0.41492 \nrpy: 0.9781 -0.5716 2.318"]
+"yumi_joint_1_l" -> "yumi_link_1_l"
+"yumi_link_1_l" -> "yumi_joint_2_l" [label="xyz: 0.03 0 0.1 \nrpy: 1.5708 -0 0"]
+"yumi_joint_2_l" -> "yumi_link_2_l"
+"yumi_link_2_l" -> "yumi_joint_7_l" [label="xyz: -0.03 0.17283 0 \nrpy: -1.5708 0 0"]
+"yumi_joint_7_l" -> "yumi_link_3_l"
+"yumi_link_3_l" -> "yumi_joint_3_l" [label="xyz: -0.04188 0 0.07873 \nrpy: 0 -1.5708 1.5708"]
+"yumi_joint_3_l" -> "yumi_link_4_l"
+"yumi_link_4_l" -> "yumi_joint_4_l" [label="xyz: 0.0405 0.16461 0 \nrpy: -1.5708 0 0"]
+"yumi_joint_4_l" -> "yumi_link_5_l"
+"yumi_link_5_l" -> "yumi_joint_5_l" [label="xyz: -0.027 0 0.10039 \nrpy: 1.5708 -0 0"]
+"yumi_joint_5_l" -> "yumi_link_6_l"
+"yumi_link_6_l" -> "yumi_joint_6_l" [label="xyz: 0.027 0.029 0 \nrpy: -1.5708 0 0"]
+"yumi_joint_6_l" -> "yumi_link_7_l"
+"yumi_link_7_l" -> "yumi_link_7_l_joint" [label="xyz: 0 0 0.007 \nrpy: 0 -0 -3.14159"]
+"yumi_link_7_l_joint" -> "gripper_l_base"
+"gripper_l_base" -> "gripper_l_joint" [label="xyz: 0 -0.0065 0.0837 \nrpy: 0 -0 0"]
+"gripper_l_joint" -> "gripper_l_finger_r"
+"gripper_l_base" -> "gripper_l_joint_m" [label="xyz: 0 0.0065 0.0837 \nrpy: 0 -0 -3.14159"]
+"gripper_l_joint_m" -> "gripper_l_finger_l"
+"yumi_body" -> "yumi_joint_1_r" [label="xyz: 0.05355 -0.0725 0.41492 \nrpy: -0.9795 -0.5682 -2.3155"]
+"yumi_joint_1_r" -> "yumi_link_1_r"
+"yumi_link_1_r" -> "yumi_joint_2_r" [label="xyz: 0.03 0 0.1 \nrpy: 1.5708 -0 0"]
+"yumi_joint_2_r" -> "yumi_link_2_r"
+"yumi_link_2_r" -> "yumi_joint_7_r" [label="xyz: -0.03 0.17283 0 \nrpy: -1.5708 0 0"]
+"yumi_joint_7_r" -> "yumi_link_3_r"
+"yumi_link_3_r" -> "yumi_joint_3_r" [label="xyz: -0.04188 0 0.07873 \nrpy: 0 -1.5708 1.5708"]
+"yumi_joint_3_r" -> "yumi_link_4_r"
+"yumi_link_4_r" -> "yumi_joint_4_r" [label="xyz: 0.0405 0.16461 0 \nrpy: -1.5708 0 0"]
+"yumi_joint_4_r" -> "yumi_link_5_r"
+"yumi_link_5_r" -> "yumi_joint_5_r" [label="xyz: -0.027 0 0.10039 \nrpy: 1.5708 -0 0"]
+"yumi_joint_5_r" -> "yumi_link_6_r"
+"yumi_link_6_r" -> "yumi_joint_6_r" [label="xyz: 0.027 0.029 0 \nrpy: -1.5708 0 0"]
+"yumi_joint_6_r" -> "yumi_link_7_r"
+"yumi_link_7_r" -> "yumi_link_7_r_joint" [label="xyz: 0 0 0.007 \nrpy: 0 -0 -3.14159"]
+"yumi_link_7_r_joint" -> "gripper_r_base"
+"gripper_r_base" -> "gripper_r_joint" [label="xyz: 0 -0.0065 0.0837 \nrpy: 0 -0 0"]
+"gripper_r_joint" -> "gripper_r_finger_r"
+"gripper_r_base" -> "gripper_r_joint_m" [label="xyz: 0 0.0065 0.0837 \nrpy: 0 -0 -3.14159"]
+"gripper_r_joint_m" -> "gripper_r_finger_l"
+}

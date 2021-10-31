@@ -9,34 +9,254 @@
     <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
-    <group name="left_arm">
-        <chain base_link="yumi_body" tip_link="yumi_link_7_l" />
-    </group>
-    <group name="right_arm">
-        <chain base_link="yumi_body" tip_link="yumi_link_7_r" />
+    
+    <group name="full_arms">
+      <group name="full_left_arm"/>
+      <group name="full_right_arm"/>
     </group>
     <group name="both_arms">
-        <group name="left_arm" />
-        <group name="right_arm" />
+      <group name="left_arm"/>
+      <group name="right_arm"/>
+    </group>
+    <group name="full_left_arm">
+      <group name="left_arm"/>
+      <group name="left_gripper"/>
+    </group>
+    <group name="full_right_arm">
+      <group name="right_arm"/>
+      <group name="right_gripper"/>
+    </group>
+
+    <group name="left_arm">
+      <chain base_link="yumi_body" tip_link="yumi_link_7_l" />
+      <joint name="world_joint" />
+      <joint name="yumi_joint_1_l" />
+      <joint name="yumi_joint_2_l" />
+      <joint name="yumi_joint_7_l" />
+      <joint name="yumi_joint_3_l" />
+      <joint name="yumi_joint_4_l" />
+      <joint name="yumi_joint_5_l" />
+      <joint name="yumi_joint_6_l" />
+      <joint name="yumi_link_7_l_joint" />
+    </group>
+    <group name="right_arm">
+      <chain base_link="yumi_body" tip_link="yumi_link_7_r" />
+      <joint name="world_joint" />
+      <joint name="yumi_joint_1_r" />
+      <joint name="yumi_joint_2_r" />
+      <joint name="yumi_joint_7_r" />
+      <joint name="yumi_joint_3_r" />
+      <joint name="yumi_joint_4_r" />
+      <joint name="yumi_joint_5_r" />
+      <joint name="yumi_joint_6_r" />
+      <joint name="yumi_link_7_r_joint" />
     </group>
     <group name="left_gripper">
         <link name="gripper_l_finger_r" />
         <link name="gripper_l_base" />
         <link name="gripper_l_finger_l" />
+        <joint name="gripper_l_joint" />
     </group>
     <group name="right_gripper">
         <link name="gripper_r_base" />
         <link name="gripper_r_finger_r" />
         <link name="gripper_r_finger_l" />
+        <joint name="gripper_r_joint" />
     </group>
+
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="left_gripper_ee" parent_link="yumi_link_7_l" group="left_gripper" parent_group="left_arm" />
-    <end_effector name="right_gripper_ee" parent_link="yumi_link_7_r" group="right_gripper" parent_group="right_arm" />
+    <end_effector name="left_end_effector" parent_link="yumi_link_7_l" group="left_gripper" parent_group="left_arm" />
+    <end_effector name="right_end_effector" parent_link="yumi_link_7_r" group="right_gripper" parent_group="right_arm" />
+
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
     <passive_joint name="gripper_l_joint_m" />
     <passive_joint name="gripper_r_joint_m" />
     <passive_joint name="gripper_l_joint" />
     <passive_joint name="gripper_r_joint" />
+
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="world_joint" type="fixed" parent_frame="world" child_link="yumi_base_link" />
+    <!--               -->
+    <!-- CALIB POSITION -->
+    <!--               -->
+
+    <group_state name="calib" group="full_arms">
+      <joint name="yumi_joint_1_l" value="0"/>
+      <joint name="yumi_joint_1_r" value="0"/>
+      <joint name="yumi_joint_2_l" value="-2.2689"/>
+      <joint name="yumi_joint_2_r" value="-2.2689"/>
+      <joint name="yumi_joint_7_l" value="2.3562"/>
+      <joint name="yumi_joint_7_r" value="-2.3562"/>
+      <joint name="yumi_joint_3_l" value="0.5236"/>
+      <joint name="yumi_joint_3_r" value="0.5236"/>
+      <joint name="yumi_joint_4_l" value="0"/>
+      <joint name="yumi_joint_4_r" value="0"/>
+      <joint name="yumi_joint_5_l" value="0.6981"/>
+      <joint name="yumi_joint_5_r" value="0.6981"/>
+      <joint name="yumi_joint_6_l" value="0"/>
+      <joint name="yumi_joint_6_r" value="0"/>
+      <joint name="gripper_l_joint" value="0"/>
+      <joint name="gripper_r_joint" value="0"/>
+    </group_state>
+
+    <group_state name="calib" group="both_arms">
+      <joint name="yumi_joint_1_l" value="0"/>
+      <joint name="yumi_joint_1_r" value="0"/>
+      <joint name="yumi_joint_2_l" value="-2.2689"/>
+      <joint name="yumi_joint_2_r" value="-2.2689"/>
+      <joint name="yumi_joint_7_l" value="2.3562"/>
+      <joint name="yumi_joint_7_r" value="-2.3562"/>
+      <joint name="yumi_joint_3_l" value="0.5236"/>
+      <joint name="yumi_joint_3_r" value="0.5236"/>
+      <joint name="yumi_joint_4_l" value="0"/>
+      <joint name="yumi_joint_4_r" value="0"/>
+      <joint name="yumi_joint_5_l" value="0.6981"/>
+      <joint name="yumi_joint_5_r" value="0.6981"/>
+    </group_state>
+
+    <group_state name="calib" group="full_left_arm">
+      <joint name="yumi_joint_1_l" value="0"/>
+      <joint name="yumi_joint_2_l" value="-2.2689"/>
+      <joint name="yumi_joint_7_l" value="-2.3562"/>
+      <joint name="yumi_joint_3_l" value="0.5236"/>
+      <joint name="yumi_joint_4_l" value="0"/>
+      <joint name="yumi_joint_5_l" value="0.6981"/>
+      <joint name="yumi_joint_6_l" value="0"/>
+      <joint name="gripper_l_joint" value="0"/>
+    </group_state>
+
+    <group_state name="calib" group="full_right_arm">
+      <joint name="yumi_joint_1_r" value="0"/>
+      <joint name="yumi_joint_2_r" value="-2.2689"/>
+      <joint name="yumi_joint_7_r" value="-2.3562"/>
+      <joint name="yumi_joint_3_r" value="0.5236"/>
+      <joint name="yumi_joint_4_r" value="0"/>
+      <joint name="yumi_joint_5_r" value="0.6981"/>
+      <joint name="yumi_joint_6_r" value="0"/>
+      <joint name="gripper_r_joint" value="0"/>
+    </group_state>
+
+    <group_state name="calib" group="left_arm">
+      <joint name="yumi_joint_1_l" value="0"/>
+      <joint name="yumi_joint_2_l" value="-2.2689"/>
+      <joint name="yumi_joint_7_l" value="2.3562"/>
+      <joint name="yumi_joint_3_l" value="0.5236"/>
+      <joint name="yumi_joint_4_l" value="0"/>
+      <joint name="yumi_joint_5_l" value="0.6981"/>
+      <joint name="yumi_joint_6_l" value="0"/>
+    </group_state>
+    <group_state name="calib" group="right_arm">
+      <joint name="yumi_joint_1_r" value="0"/>
+      <joint name="yumi_joint_2_r" value="-2.2689"/>
+      <joint name="yumi_joint_7_r" value="-2.3562"/>
+      <joint name="yumi_joint_3_r" value="0.5236"/>
+      <joint name="yumi_joint_4_r" value="0"/>
+      <joint name="yumi_joint_5_r" value="0.6981"/>
+      <joint name="yumi_joint_6_r" value="0"/>
+    </group_state>
+
+    <!--               -->
+    <!-- HOME POSITION -->
+    <!--               -->
+
+    <group_state name="home" group="full_arms">
+      <joint name="yumi_joint_1_l" value="-1.2217"/>
+      <joint name="yumi_joint_1_r" value="1.2217"/>
+      <joint name="yumi_joint_2_l" value="-1.3963"/>
+      <joint name="yumi_joint_2_r" value="-1.3963"/>
+      <joint name="yumi_joint_7_l" value="1.7453"/>
+      <joint name="yumi_joint_7_r" value="-1.7453"/>
+      <joint name="yumi_joint_3_l" value="0.4363"/>
+      <joint name="yumi_joint_3_r" value="0.4363"/>
+      <joint name="yumi_joint_4_l" value="0.5236"/>
+      <joint name="yumi_joint_4_r" value="-0.5236"/>
+      <joint name="yumi_joint_5_l" value="0.6981"/>
+      <joint name="yumi_joint_5_r" value="0.6981"/>
+      <joint name="yumi_joint_6_l" value="0"/>
+      <joint name="yumi_joint_6_r" value="-3.1416"/>
+      <joint name="gripper_r_joint" value="0.025"/>
+      <joint name="gripper_l_joint" value="0.025"/>
+    </group_state>
+
+    <group_state name="home" group="both_arms">
+      <joint name="yumi_joint_1_l" value="-1.2217"/>
+      <joint name="yumi_joint_1_r" value="1.2217"/>
+      <joint name="yumi_joint_2_l" value="-1.3963"/>
+      <joint name="yumi_joint_2_r" value="-1.3963"/>
+      <joint name="yumi_joint_7_l" value="1.7453"/>
+      <joint name="yumi_joint_7_r" value="-1.7453"/>
+      <joint name="yumi_joint_3_l" value="0.4363"/>
+      <joint name="yumi_joint_3_r" value="0.4363"/>
+      <joint name="yumi_joint_4_l" value="0.5236"/>
+      <joint name="yumi_joint_4_r" value="-0.5236"/>
+      <joint name="yumi_joint_5_l" value="0.6981"/>
+      <joint name="yumi_joint_5_r" value="0.6981"/>
+      <joint name="yumi_joint_6_l" value="0"/>
+      <joint name="yumi_joint_6_r" value="-3.1416"/>
+    </group_state>
+
+    <group_state name="home" group="full_left_arm">
+      <joint name="yumi_joint_1_l" value="1.2217"/>
+      <joint name="yumi_joint_2_l" value="-1.3963"/>
+      <joint name="yumi_joint_7_l" value="-1.7453"/>
+      <joint name="yumi_joint_3_l" value="0.4363"/>
+      <joint name="yumi_joint_4_l" value="-0.5236"/>
+      <joint name="yumi_joint_5_l" value="0.6981"/>
+      <joint name="yumi_joint_6_l" value="-3.1416"/>
+      <joint name="gripper_l_joint" value="0.025"/>
+    </group_state>
+
+    <group_state name="home" group="full_right_arm">
+      <joint name="yumi_joint_1_r" value="1.2217"/>
+      <joint name="yumi_joint_2_r" value="-1.3963"/>
+      <joint name="yumi_joint_7_r" value="-1.7453"/>
+      <joint name="yumi_joint_3_r" value="0.4363"/>
+      <joint name="yumi_joint_4_r" value="-0.5236"/>
+      <joint name="yumi_joint_5_r" value="0.6981"/>
+      <joint name="yumi_joint_6_r" value="-3.1416"/>
+      <joint name="gripper_r_joint" value="0.025"/>
+    </group_state>
+
+    <group_state name="home" group="left_arm">
+      <joint name="yumi_joint_1_l" value="-1.2217"/>
+      <joint name="yumi_joint_2_l" value="-1.3963"/>
+      <joint name="yumi_joint_7_l" value="1.7453"/>
+      <joint name="yumi_joint_3_l" value="0.4363"/>
+      <joint name="yumi_joint_4_l" value="0.5236"/>
+      <joint name="yumi_joint_5_l" value="0.6981"/>
+      <joint name="yumi_joint_6_l" value="0"/>
+    </group_state>
+    <group_state name="home" group="right_arm">
+      <joint name="yumi_joint_1_r" value="1.2217"/>
+      <joint name="yumi_joint_2_r" value="-1.3963"/>
+      <joint name="yumi_joint_7_r" value="-1.7453"/>
+      <joint name="yumi_joint_3_r" value="0.4363"/>
+      <joint name="yumi_joint_4_r" value="-0.5236"/>
+      <joint name="yumi_joint_5_r" value="0.6981"/>
+      <joint name="yumi_joint_6_r" value="-3.1416"/>
+    </group_state>
+
+    <!--           -->
+    <!-- Open Hand -->
+    <!--           -->
+
+    <group_state name="open_right_hand" group="right_gripper">
+      <joint name="gripper_r_joint" value="0.025"/>
+    </group_state>
+    <group_state name="open_left_hand" group="left_gripper">
+      <joint name="gripper_l_joint" value="0.025"/>
+    </group_state>
+    <!--            -->
+    <!-- Close Hand -->
+    <!--            -->
+
+    <group_state name="close_right_hand" group="right_gripper">
+      <joint name="gripper_r_joint" value="0"/>
+    </group_state>
+    <group_state name="close_left_hand" group="left_gripper">
+      <joint name="gripper_l_joint" value="0"/>
+    </group_state>
+
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="gripper_l_base" link2="gripper_l_finger_l" reason="Adjacent" />
     <disable_collisions link1="gripper_l_base" link2="gripper_l_finger_r" reason="Adjacent" />
