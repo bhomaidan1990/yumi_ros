@@ -110,6 +110,8 @@
       <joint name="yumi_joint_3_r" value="0.5236"/>
       <joint name="yumi_joint_4_l" value="0"/>
       <joint name="yumi_joint_4_r" value="0"/>
+      <joint name="yumi_joint_6_l" value="0"/>
+      <joint name="yumi_joint_6_r" value="0"/>
       <joint name="yumi_joint_5_l" value="0.6981"/>
       <joint name="yumi_joint_5_r" value="0.6981"/>
     </group_state>
