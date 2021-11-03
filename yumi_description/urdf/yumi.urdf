@@ -739,10 +739,10 @@
   <transmission name="gripper_r_tran">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="gripper_r_joint">
-      <hardwareInterface>hardware_interface/EffortJoinInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="gripper_r_motor">
-      <hardwareInterface>hardware_interface/EffortJoinInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -851,10 +851,10 @@
   <transmission name="gripper_l_tran">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="gripper_l_joint">
-      <hardwareInterface>hardware_interface/EffortJoinInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="gripper_l_motor">
-      <hardwareInterface>hardware_interface/EffortJoinInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
