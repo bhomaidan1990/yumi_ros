@@ -12,6 +12,7 @@
   <arg name="sim" default="false"/> <!-- argument for running as a simulation instead of on the real robot controller -->
   <arg name="robot_ip" default="192.168.125.1"/> <!-- argiment for the IP address of YuMi -->
   <arg name="rviz" default="true"/> <!-- argument to lead or not load rviz during execution -->
+  <arg name="gazebo" default="false"/> <!-- argument to lrun gazebo -->
 
   <!-- Load Joint Names to ROS Parameter Server -->
   <group> 
@@ -20,15 +21,31 @@
   </group>
 
   <!-- Load Robot Description -->
-  <include file="$(find yumi_moveit_config)/launch/planning_context.launch">
-  </include>
-
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> <!-- publish TF transforms -->
+  <!-- <include file="$(find yumi_moveit_config)/launch/planning_context.launch">
+  </include> -->
 
   <!-- Run Robot and Joint State Servers -->
   <group unless="$(arg sim)">
     <include file="$(find yumi_support)/launch/robot_interface.launch">
       <arg name="robot_ip" value="$(arg robot_ip)"/>
+    </include>
+  </group>
+
+	<!-- Joint state and robot state publisher calls -->
+  <node name="yumi_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <rosparam param="source_list">["/yumi/joint_states", "/yumi/gripper_states"]</rosparam>
+  </node>
+  <node name="yumi_robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+	<node name="grippers_remapper" pkg="yumi_hw" type="gazebo_grippers_remap.py" />
+	
+  <!-- Call Gazebo -->
+  <group if="$(arg gazebo)">
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="paused" value="true"/>
+      <arg name="use_sim_time" value="true"/>
+      <arg name="gui" value="true"/>
+      <arg name="headless" value="false"/>
+      <arg name="debug" value="false" />
     </include>
   </group>
 
