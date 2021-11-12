@@ -36,7 +36,6 @@
     <rosparam param="source_list">["/yumi/joint_states", "/yumi/gripper_states"]</rosparam>
   </node>
   <node name="yumi_robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-	<node name="grippers_remapper" pkg="yumi_hw" type="gazebo_grippers_remap.py" />
 	
   <!-- Call Gazebo -->
   <group if="$(arg gazebo)">
