@@ -36,7 +36,8 @@ sudo apt-get install \
         ros-$ROS_DISTRO-position-controllers \
         ros-$ROS_DISTRO-rqt-joint-trajectory-controller \
         ros-$ROS_DISTRO-transmission-interface \
-        ros-$ROS_DISTRO-velocity-controllers
+        ros-$ROS_DISTRO-velocity-controllers \
+        ros-$ROS_DISTRO-hector-xacro-tools
 ```
 Then:
 ```
